@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    working_dir: /app
+    container_name: adonis-app
+    volumes:
+      - .:/app
+    ports:
+      - "3333:3333"
+    env_file:
+      - .env
+    networks:
+      - adonis
+
+networks:
+  adonis:
+    driver: bridge
